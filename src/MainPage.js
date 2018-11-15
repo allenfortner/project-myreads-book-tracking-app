@@ -13,9 +13,10 @@ class MainPage extends Component {
 				</div>
 				<div className="list-books-content">
 						<div>
-							<Bookshelf shelfName="Currently Reading"/>
-							<Bookshelf shelfName="Want to Read"/>
-							<Bookshelf shelfName="Read"/>
+							{/*Each shelf filters through the books to display the right books on the correct shelves*/}
+							<Bookshelf shelfName="Currently Reading" books={this.props.books.filter(book => book.shelf === "currentlyReading")}/>
+							<Bookshelf shelfName="Want to Read" books={this.props.books.filter(book => book.shelf === "wantToRead")}/>
+							<Bookshelf shelfName="Read" books={this.props.books.filter(book => book.shelf === "read")}/>
 						</div>
 					</div>
 				<div className="open-search">
