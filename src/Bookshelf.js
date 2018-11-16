@@ -11,7 +11,7 @@ class Bookshelf extends Component {
 				<div className="bookshelf-books">
 					<ol className="books-grid">
 					{/*Map each book with title, authors, and thumbnail image properties*/}
-						{this.props.books.map(book => (<Book title={book.title} authors={book.authors} image={(book.imageLinks && `url(${book.imageLinks.thumbnail})`)}/>))}
+						{this.props.books.map(book => (<Book title={book.title} authors={book.authors} key={book.id} image={(book.imageLinks && `url(${book.imageLinks.thumbnail})`)}/>))}
 					</ol>
 				</div>
 			</div>
