@@ -18,7 +18,7 @@ class BooksApp extends Component {
 	getBooks = () => {
 		//Get all of the books from BooksAPI and set the books state to the list we just received
 		BooksAPI.getAll().then((newBooks) => {
-			console.log(newBooks);
+			//console.log(newBooks);
 			this.setState({books: newBooks});
 		});
 	}
@@ -28,7 +28,7 @@ class BooksApp extends Component {
 			//Filter out the old shelf version of the updated book if applicable and add the new book to the books state
 			book.shelf = shelf;
 			this.setState(state => ({books: state.books.filter(eachBook => eachBook.id !== book.id).concat(book)}));
-			console.log(this.state.books);
+			//console.log(this.state.books);
 		});
 	}
 	

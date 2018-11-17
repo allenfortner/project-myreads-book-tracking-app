@@ -12,7 +12,7 @@ class SearchPage extends Component {
 	updateQuery = (newQuery) => {
 		//When the user types in the search field, the query state will be updated
 		this.setState({query: newQuery});
-		console.log(newQuery);
+		//console.log(newQuery);
 		//Then search the API for the new query
 		this.searchQuery(newQuery)
 	}
@@ -26,7 +26,7 @@ class SearchPage extends Component {
 			} else {
 				//Otherwise, set the results state to the contents of the response
 				this.setState({results: response});
-				console.log(response);
+				//console.log(response);
 			}
 		});
 	}
@@ -68,7 +68,7 @@ class SearchPage extends Component {
 								correctShelf = filterShelf[0].shelf;
 							}
 							
-							console.log(filterShelf);
+							//console.log(filterShelf);
 							
 							return (<Book 
 									book={book}
