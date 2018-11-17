@@ -16,6 +16,7 @@ class Bookshelf extends Component {
 							title={book.title} 
 							authors={book.authors} 
 							key={book.id} 
+							shelf={book.shelf}
 							image={(book.imageLinks && `url(${book.imageLinks.thumbnail})`)} 
 							changeShelf={this.props.changeShelf}
 						/>))}

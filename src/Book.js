@@ -4,7 +4,7 @@ class Book extends Component {
 	state = {}
 	
 	render() {
-		const currentShelf = this.props.book.shelf || "none";
+		const currentShelf = this.props.shelf || "none";
 		
 		return (
 			<li>

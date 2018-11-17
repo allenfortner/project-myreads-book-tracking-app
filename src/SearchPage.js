@@ -52,14 +52,34 @@ class SearchPage extends Component {
 				<div className="search-books-results">
 					<ol className="books-grid">
 					{/*Map each book in the response state*/}
-						{this.state.results.map(book => (<Book 
-								book={book}
-								title={book.title} 
-								authors={book.authors} 
-								key={book.id} 
-								image={(book.imageLinks && `url(${book.imageLinks.thumbnail})`)} 
-								changeShelf={this.props.changeShelf}
-						/>))}
+						{this.state.results.map(book => {
+							
+							//Kind of messy, but the following code is used to display the correct shelf for each book on the search page
+							let correctShelf;
+							let filterShelf = (this.props.books.filter(findBook => findBook.id === book.id));
+							
+							//filterShelf goes through the current list of books and filters out the book being mapped (if applicable)
+							
+							if (filterShelf.length === 0) {
+								//If the book being mapped is not on any of the shelves, set the correctShelf to none and create the component
+								correctShelf = "none";
+							} else {
+								//Otherwise, display the correct shelf that the book is already on
+								correctShelf = filterShelf[0].shelf;
+							}
+							
+							console.log(filterShelf);
+							
+							return (<Book 
+									book={book}
+									title={book.title} 
+									authors={book.authors} 
+									key={book.id} 
+									shelf={correctShelf}
+									image={(book.imageLinks && `url(${book.imageLinks.thumbnail})`)} 
+									changeShelf={this.props.changeShelf}
+							/>);
+						})}
 					</ol>
 				</div>
 			</div>
