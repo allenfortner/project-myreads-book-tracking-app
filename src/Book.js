@@ -6,6 +6,9 @@ class Book extends Component {
 	render() {
 		const currentShelf = this.props.shelf || "none";
 		
+		//If there are multiple authors, combine each author's name into a single string separated by commas
+		const authors = this.props.authors && this.props.authors.join(', ');
+		
 		return (
 			<li>
 				<div className="book">
@@ -22,7 +25,7 @@ class Book extends Component {
 						</div>
 					</div>
 					<div className="book-title">{this.props.title}</div>
-					<div className="book-authors">{this.props.authors}</div>
+					<div className="book-authors">{authors}</div>
 				</div>
 			</li>
 		)
